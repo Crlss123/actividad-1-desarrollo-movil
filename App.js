@@ -1,35 +1,56 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View , Image, ScrollView} from 'react-native';
 
-// You can import supported modules from npm
-import { Card } from 'react-native-paper';
-
-// or any files within the Snack
-import AssetExample from './components/AssetExample';
-
-export default function App() {
+const Professor = props => {
+  const randomNumber = Math.floor(Math.random() * 100 + 50)
   return (
-    <View style={styles.container}>
-      <Text style={styles.paragraph}>
-        Change code in the editor and watch it change on your phone! Save to get a shareable url.
-      </Text>
-      <Card>
-        <AssetExample />
-      </Card>
+    <View style = {styles.profContainer}>
+      <Image 
+      style = {styles.profImage}
+      source={{uri:`https://picsum.photos/${randomNumber}`, width: 100, height:100}}/>
+      <Text> Hello World! I am {props.name} </Text>
     </View>
   );
 }
 
+
+export default App = () => {
+  return(
+    <ScrollView>
+      <Professor name="Libia Medina"/>
+      <Professor name="Diana"/>
+      <Professor name="Carlos"/>
+      <Professor name="Kim"/>
+      <Professor name="Maria"/>
+      <Professor name="Mario"/>
+      <Professor name="Mariot"/>
+      <Professor name="Brock"/>
+      <Professor name="Pedri"/>
+      <Professor name="Gavi"/>
+      <Professor name="Araujo"/>
+      <Professor name="CMC"/>
+      <Professor name="George Kittle"/>
+      <Professor name="Josh Allen"/>
+      <Professor name="Bustin Herbert"/>
+    </ScrollView>
+  );
+};
+
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+  profContainer:{
+    flexDirection: 'row',
+    padding: 10,
+    margin: 10,
+    alignItems: 'center',
+    shadowColor: '#000000',
+    shadowOffset: {width: 0, height: 2},
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
+  profImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+  }
+
+})
